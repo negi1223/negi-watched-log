@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ねぎの見たアニメ・漫画まとめ｜アニメ編</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="ねぎが見たアニメを随時まとめているサイトです。">
+<!-- OGP: サイトを公開したら og:image は絶対URLに直してください -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="ねぎの見たアニメ・漫画まとめ｜アニメ編">
+<meta property="og:description" content="ねぎが見たアニメを随時まとめているサイトです。">
+<meta property="og:image" content="images/hero.jpeg">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="splash">
+    <div class="splash__logo">
+      <div class="splash__spinner"></div>
+      <span>Loading...</span>
+    </div>
+  </div>
+
+  <div class="hero" style="background-image:url('images/hero.jpeg')"></div>
+
+  <header class="site-header">
+    <h1 class="site-header__title">ねぎの見たアニメ・漫画まとめ</h1>
+    <p class="site-header__lead">
+      小学生の頃からアニメ・漫画をよく見てきました。見た作品を随時まとめています。<br>
+      作品をクリックすると詳細（PV・評価・感想・公式サイト）が開きます。
+    </p>
+    <nav class="site-nav">
+      <a href="index.html" class="is-current">アニメ編</a>
+      <a href="manga.html">漫画編</a>
+    </nav>
+  </header>
+
+  <div class="toolbar">
+    <input type="search" id="search-input" class="toolbar__search" placeholder="作品名で検索">
+    <select id="rating-filter" class="toolbar__select" aria-label="評価で絞り込み">
+      <option value="">評価：すべて</option>
+      <option value="10+">10点以上</option>
+      <option value="10">10点</option>
+      <option value="9">9点</option>
+      <option value="8">8点</option>
+      <option value="7">7点</option>
+      <option value="6">6点</option>
+      <option value="5">5点</option>
+      <option value="4">4点</option>
+      <option value="3">3点</option>
+      <option value="2">2点</option>
+      <option value="1">1点</option>
+    </select>
+    <select id="sort-select" class="toolbar__select" aria-label="並び替え">
+      <option value="kana">あいうえお順</option>
+      <option value="rating">評価が高い順</option>
+      <option value="original">追加順</option>
+    </select>
+  </div>
+
+  <div class="index-accordion">
+    <button type="button" id="index-toggle" class="index-toggle" aria-expanded="false" aria-controls="index-panel">
+      一覧 ▼
+    </button>
+    <div id="index-panel" class="index-panel">
+      <ul id="index-list" class="index-list"></ul>
+    </div>
+  </div>
+
+  <section class="card-section">
+    <p class="card-section__meta"><span id="item-count">0</span>作品</p>
+    <div id="card-list" class="card-list"></div>
+    <button type="button" id="load-more" class="load-more">もっと見る</button>
+  </section>
+
+  <div id="detail-modal" class="detail-modal">
+    <div class="detail-modal__box">
+      <button type="button" id="detail-modal-close" class="detail-modal__close" aria-label="閉じる">×</button>
+      <div id="detail-modal-video" class="detail-modal__video">
+        <iframe id="detail-modal-frame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <img id="detail-modal-cover" class="detail-modal__cover" src="" alt="">
+      </div>
+      <div class="detail-modal__body">
+        <h2 id="detail-modal-title" class="detail-modal__title"></h2>
+        <p id="detail-modal-rating" class="detail-modal__rating"></p>
+        <p id="detail-modal-status" class="detail-modal__status"></p>
+        <p id="detail-modal-comment" class="detail-modal__comment"></p>
+        <a id="detail-modal-official" class="detail-modal__official" href="#" target="_blank" rel="noopener">公式サイトを見る</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" id="page-top" class="page-top" aria-label="ページトップへ戻る">↑</a>
+
+  <footer class="site-footer">
+    <p class="site-footer__notice">
+      掲載している画像の著作権は各権利者に帰属します。個人の視聴記録として非営利で掲載しており、
+      問題がある場合は削除いたしますのでご連絡ください。
+    </p>
+    <p>© negi1223</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="sheets-sync.js"></script>
+  <script>const PAGE_TYPE = "anime";</script>
+  <script src="script.js"></script>
+</body>
+</html>
