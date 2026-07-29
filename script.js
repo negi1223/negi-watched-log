@@ -29,6 +29,14 @@
   let filteredItems = [];
   let visibleCount = 0;
 
+  // スプレッドシートのPVリンク欄には、URLだけでなく
+  // YouTubeの「共有→埋め込み」でコピーした<iframe>タグをそのまま貼ってもよいようにする
+  function extractVideoUrl(raw) {
+    if (!raw) return "";
+    const iframeMatch = String(raw).match(/<iframe[^>]*\ssrc=["']([^"']+)["']/i);
+    return (iframeMatch ? iframeMatch[1] : raw).trim();
+  }
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, "&amp;")
@@ -174,7 +182,7 @@
       }
 
       if (item.video) {
-        frame.src = item.video;
+        frame.src = extractVideoUrl(item.video);
         frame.style.display = "";
         coverImg.style.display = "none";
         coverImg.src = "";
